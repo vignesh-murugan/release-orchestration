@@ -1,0 +1,52 @@
+task 1.0.0 - 9:00 AM - 9:05
+task 2.0.0 - 9:05 - 9:07
+task 3.1.0 - 9:07 - 9:10
+        -task 3.1.1 - 9:10 
+        -task 3.1.2 
+task 3.2.0  - 9:07 - 9:08
+        -task 3.2.1 - 9:08
+        - task 3.2.2
+task 3.3.0  - 9:07 - 9:11
+        -task 3.3.1 - 9:11
+task 4.0.0 - 9:15
+task 5.0.0
+task 6.0.0
+
+task - Manual / Automated
+Manual - 
+    name:
+    user:
+    completed:
+    started:
+    state:
+    depends on : 
+
+    ----------------------------------------------------------------------------------------
+UI:
+Plan start button --> { start time }
++ task -> Manual_list ----> order  ========= >> { Manual_list, order , state }
+
+List by order;
+
+completed button ---> { prev_list , started time, completed time}
+
+
+
+    ----------------------------------------------------------------------------------------
+
+
+Automated -
+    name:
+    Rest endpoint:
+    method : post
+    data : 
+    authentication:
+    status endpoint:
+    method : get
+    failure message :
+    success message :
+    retry : 
+
+
+
+
