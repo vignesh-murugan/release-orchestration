@@ -74,7 +74,7 @@ if (fs.existsSync(objPath)) {
         );
         fieldPermissions.forEach(fieldPermission => {
           var isAlreadyInProfile = false;
-          for (i = 0; i < elements_array.length; i++) {
+          for (let i = 0; i < elements_array.length; i++) {
             if (elements_array[i].name == "fieldPermissions") {
               var fieldValue = elements_array[i].elements[1].elements[0].text;
               if (fieldValue == fieldPermission) {
@@ -178,8 +178,8 @@ if (fs.existsSync(objPath)) {
        * Update package.xml to include the member for system integration in Profile
        */
       if (fs.existsSync(packageFile)) {
-        fs.readFile(packageFile, (error, data) => {
-          if (error) {
+        fs.readFile(packageFile, (err, data) => {
+          if (err) {
             console.error("Error while reading the package.xml file");
           }
           var hasSystemProfile = false;
@@ -200,15 +200,15 @@ if (fs.existsSync(objPath)) {
            */
           var objJson = JSON.parse(xmljs.xml2json(data, { reversible: true }));
           var outerElement = objJson.elements[0].elements;
-          for (outElement in outerElement) {
+          for (let outElement in outerElement) {
             var innerElement = outerElement[outElement].elements;
 
-            for (inElement in innerElement) {
+            for (let inElement in innerElement) {
               if (innerElement[inElement].name == "name") {
                 if (innerElement[inElement].elements[0].text == "Profile") {
                   for (inElement in innerElement) {
                     if (innerElement[inElement].name == "members") {
-                      hasProfileMember = true;
+                      let hasProfileMember = true;
                       var memberElement = innerElement[inElement].elements;
                       if (memberElement[0].text == "System Integration") {
                         hasSystemProfile = true;
@@ -273,7 +273,7 @@ async function writeFile(xmlValue, file_path, file_name) {
   await fs.writeFile(
     file_path + file_name,
     xmlValue,
-    (err = {
+    ((err) => {
       if(err) {
         console.error("error while writing the profile " + err);
       }
